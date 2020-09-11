@@ -1,10 +1,10 @@
 ## Sumarização dos padrões de desenvolvimento do VueJS
 
 ### Lista de tópicos
-Cada padrão encontra-se em uma categoria, são eles: 
+Cada padrão descrito encontra-se em uma das seguintes categorias:
 1. [Essenciais](#essenciais) cuja intenção é previnir erros :fire:.
 2. [Fortemente recomendados](#fortemente-recomendados) são padrões que objetivam melhorar a legibilidade do código :orange_book:.
-3. [Recomendados]() que buscam minimizar escolhar arbitrárias e discuções desnecessárias :thought_balloon:.
+3. [Recomendados]() que buscam minimizar escolhas arbitrárias e discuções desnecessárias :thought_balloon:.
 4. [Usar com cuidado]() apontado pela documentação como padrões com "perigo em potencial" :warning:.
 
 ### Essenciais
@@ -89,6 +89,59 @@ o componente filho devem ser prefixado com o nome do componente pai. Ex:
           |- TodoList.vue
           |- TodoListItem.vue
           |- TodoListItemButton.vue
+     ```
+     Fazer isso é bastante conveniente pois a ordem alfabética dos editores de texto mantém os componentes próximos
+     o que melhora a "navegação" no projeto.
+     
+6. **Ordem das palavras** no nome dos componentes deve sempre iniciar com termos mais gerais ─ alto nível ─ e terminar
+com palavras que modificam, descrevem, e não deixam dúvida sobre o propósito do componente (ver item anterior).
+
+7. A declaração de **fechamento de template** pode ser feita de duas maneiras. O **auto-fechamento** deve ser
+usado em componentes definidos em arquivos ou strings e o **fechamento padrão** (html like) deve ser usado em templates
+DOM. Ex.:
+
+     ```html
+     <!-- Arquivo .vue -->
+     <template>
+          <MyComponent
+               prop1="miau"
+               prop2="That's What she said"
+          />
+     </tempate>
+
+     <!-- Contexto DOM -->
+     <my-component
+          prop1="miau"
+          prop2="That's What she said"
+     >
+
+     </my-component>
+     ```
+
+8. **Nome do componente em templates** deve seguir o estilo PascalCase no nome de arquivos e templates definidos no
+formato de string e kebab-case em referências a partir de templates DOM (verificar item anterior).
+
+9. Nomes de componentes **não devem ser conter abreviações**, elas não transmitem informação nenhuma. Ao invés disso
+é preferível um nome longo porém informativo.
+
+10. **Nomes de propriedades** devem seguir o estilo camelCase na sua declaração, porém kebab-case em referências em
+templates DOM ou JSX.
+
+11. **Elementos com muitos atributos** devem ser organizados em várias linhas. Em javascript essa prática é bastante usada
+na declaração de objetos que são extensos e é considerada uma boa convenção. De acordo com a [documentação](https://vuejs.org/v2/style-guide/#Multi-attribute-elements-strongly-recommended) isso melhora a legibilidade do código. Ex.:
+
+     ```html
+     <template>
+          <MyComponent
+               prop1="miau"
+               prop2="That's What she said"
+          />
+     </tempate>
+
+     <img
+          src="https://oloco-meu.png"
+          alt="Oloco meu"
+     >
      ```
 
 **Fonte**: [VueJS Style Guides](https://vuejs.org/v2/style-guide)
