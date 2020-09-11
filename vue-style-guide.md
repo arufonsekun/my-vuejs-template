@@ -1,7 +1,13 @@
 ## Sumarização dos padrões de desenvolvimento do VueJS
-Cada padrão se encontra dentro de uma categoria: Essencial, Fortemente Recomendado, Recomedado e Use com cuidado.
 
-### Padrões Essenciais
+### Lista de tópicos
+Cada padrão encontra-se em uma categoria, são eles: 
+1. [Essenciais](#essenciais) cuja intenção é previnir erros.
+2. [Fortemente recomendados]() são padrões que objetivam melhorar a legibilidade do código.
+3. [Recomendados]() que buscam minimizar escolhar arbitrárias e discuções desnecessárias.
+4. [Usar com cuidado]() apontado pela documentação como padrões com "perigo em potencial".
+
+### Essenciais
 
 1. O **nome de componentes** deve ser formado por várias palavras. Ex: TodoItem.
 2. A **definição das props** deve ser a mais detalhada possível, ao menos
@@ -57,13 +63,16 @@ do componente raiz ─ App ─ e de componentes de layout.
     ```
 5. O **nome de propriedades privadas** em plugins, mixins e componentes deve conter o prefixo
 `$_`. Isso foi esquematizado devido as referências com o prefixo `$` serem recursos públicos do framework,
- e referências privadas do VueJS serem prefixadas com `_`, desse modo a melhor maneira de nomear propriedades
- privadas definidas pelo usuário é unindo os dois prefixos.
+ e referências privadas serem prefixadas com `_`, desse modo a melhor maneira de nomear propriedades
+ privadas definidas pelo usuário definida foi unir os dois prefixos, fazendo isso não há chances de ocorrer
+ algum tipo de problema com referências.
 
 ### Fortemente Recomendados
 
-1. **Arquivos de componentes** são fortemente recomendados, uma vez tendo os componentes
-definidos em arquivo específicos torna-se mais rápido de encontrá-los, e revisá-los.
+1. Criar **arquivos de componentes** é uma prática bastante interessante, uma vez tendo os componentes
+definidos em arquivos específicos torna-se mais fácil encontrá-los, e revisá-los. Esse padrão é bastante 
+conveniente quando analisando-o da perspectiva de projetos bastante extensos.
 
+2. **Nome de arquivo de componente** deve ser sempre PascalCase ou kebab-case.
 
 **Fonte**: [VueJS Style Guides](https://vuejs.org/v2/style-guide)
