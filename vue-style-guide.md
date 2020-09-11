@@ -1,6 +1,6 @@
 ## Sumarização dos padrões de desenvolvimento do VueJS
 
-### Lista de tópicos
+### Categorias
 Cada padrão descrito encontra-se em uma das seguintes categorias:
 1. [Essenciais](#essenciais) cuja intenção é previnir erros :fire:.
 2. [Fortemente recomendados](#fortemente-recomendados) são padrões que objetivam melhorar a legibilidade do código :orange_book:.
@@ -66,6 +66,8 @@ do componente raiz ─ App ─ e de componentes de layout.
  e referências privadas serem prefixadas com `_`, desse modo a melhor maneira de nomear propriedades
  privadas definidas pelo usuário é unir os dois prefixos, fazendo isso não há chances de ocorrer
  algum tipo de problema com referências.
+
+[:arrow_up: Lista de categorias](#categorias)
 
 ### Fortemente Recomendados
 
@@ -168,6 +170,8 @@ valor de um atributo sejam separadas por espaço, e isso dificulta a leitura do 
      
 15. **Abreviações de diretivas** devem ser usadas sempre ou nunca, misturar as duas possibilidades é uma heresia,
 segundo a doutria VueJS.
+
+[:arrow_up: Lista de categorias](#categorias)
 
 ## Recomendados
 
