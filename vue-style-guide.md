@@ -4,7 +4,7 @@
 Cada padrão descrito encontra-se em uma das seguintes categorias:
 1. [Essenciais](#essenciais) cuja intenção é previnir erros :fire:.
 2. [Fortemente recomendados](#fortemente-recomendados) são padrões que objetivam melhorar a legibilidade do código :orange_book:.
-3. [Recomendados]() que buscam minimizar escolhas arbitrárias e discuções desnecessárias :thought_balloon:.
+3. [Recomendados](#recomendados) que buscam minimizar escolhas arbitrárias e discuções desnecessárias :thought_balloon:.
 4. [Usar com cuidado]() apontado pela documentação como padrões com "perigo em potencial" :warning:.
 
 ### Essenciais
@@ -105,30 +105,33 @@ DOM. Ex.:
      <template>
           <MyComponent
                prop1="miau"
-               prop2="That's What she said"
+               prop2="That's What She said"
           />
      </tempate>
 
      <!-- Contexto DOM -->
      <my-component
           prop1="miau"
-          prop2="That's What she said"
+          prop2="That's What She said"
      >
 
      </my-component>
      ```
 
-8. **Nome do componente em templates** deve seguir o estilo PascalCase no nome de arquivos e templates definidos no
-formato de string e kebab-case em referências a partir de templates DOM (verificar item anterior).
+8. **Nome do componentes** deve seguir o estilo PascalCase no nome de arquivos, em templates definidos em arquivos
+`.vue` e no formato de string. O estilo kebab-case deve ser usado em referências a partir de templates DOM
+(verificar item anterior).
 
-9. Nomes de componentes **não devem ser conter abreviações**, elas não transmitem informação nenhuma. Ao invés disso
+9. Nomes de componentes **não devem conter abreviações**, elas não transmitem informação nenhuma. Ao invés disso
 é preferível um nome longo porém informativo.
 
-10. **Nomes de propriedades** devem seguir o estilo camelCase na sua declaração, porém kebab-case em referências em
-templates DOM ou JSX.
+10. **Nomes de propriedades** devem seguir o estilo camelCase na sua declaração, porém kebab-case em referências no
+contexto de templates DOM ou JSX.
 
 11. **Elementos com muitos atributos** devem ser organizados em várias linhas. Em javascript essa prática é bastante usada
-na declaração de objetos que são extensos e é considerada uma boa convenção. De acordo com a [documentação](https://vuejs.org/v2/style-guide/#Multi-attribute-elements-strongly-recommended) isso melhora a legibilidade do código. Ex.:
+na declaração de objetos que são extensos e é considerada uma boa convenção. De acordo com a
+[documentação](https://vuejs.org/v2/style-guide/#Multi-attribute-elements-strongly-recommended)
+isso melhora a legibilidade do código. Ex.:
 
      ```html
      <template>
@@ -142,6 +145,61 @@ na declaração de objetos que são extensos e é considerada uma boa convençã
           src="https://oloco-meu.png"
           alt="Oloco meu"
      >
+     ```
+
+12. Templates devem **conter expressões simples**, expressões complexas devem ser refatoradas
+para métodos ou _computed properties_.
+
+13. ****Computed props**** muito complexas devem ser refatoradas em props mais simples, quando possível, 
+isso possibilita nomear partes do código o que facilita o entendimento do mesmo.
+
+14. **Valores de atributos devem estar entre aspas**. Quando sem aspas, a sintaxe não permite que as partes que compôem o
+valor de um atributo sejam separadas por espaço, e isso dificulta a leitura do código. Ex.: 
+
+     ```html
+          <!-- Shitty -->
+          <AppSidebar :style={width:sidebarWidth+'px'}>
+
+          <!-- Pretty -->
+          <AppSidebar :style="{ width: sidebarWidth + 'px' }">
+          
+          <!-- By Vue Docs -->
+     ```
+     
+15. **Abreviações de diretivas** devem ser usadas sempre ou nunca, misturar as duas possibilidades é uma heresia,
+segundo a doutria VueJS.
+
+## Recomendados
+
+1. Adicionar **linhas vazias/separadoras** entre propriedades de componentes é uma prática que melhora a leitura
+e a navegação pelo código, essêncial caso a lista de _props_ e opções seja longa. Não é necessário caso o componente
+seja enxuto. Ex.:
+     ```javascript
+     // By Vue Docs
+     props: {
+       value: {
+         type: String,
+         required: true
+       },
+
+       focused: {
+         type: Boolean,
+         default: false
+       },
+
+       label: String,
+       icon: String
+     },
+
+     computed: {
+       formattedValue: function () {
+         // ...
+       },
+
+       inputClasses: function () {
+         // ...
+       }
+     }
      ```
 
 **Fonte**: [VueJS Style Guides](https://vuejs.org/v2/style-guide)
