@@ -62,10 +62,10 @@ do componente raiz ─ App ─ e de componentes de layout.
     </style>
     ```
 5. O **nome de propriedades privadas** em plugins, mixins e componentes deve conter o prefixo
-`$_`. Isso foi esquematizado devido as referências com o prefixo `$` serem recursos públicos do framework,
- e referências privadas serem prefixadas com `_`, desse modo a melhor maneira de nomear propriedades
- privadas definidas pelo usuário é unir os dois prefixos, fazendo isso não há chances de ocorrer
- algum tipo de problema com referências.
+`$_`. Isso foi esquematizado baseando-se no fato de que as referências com o prefixo `$` serem
+recursos públicos do framework, e referências privadas serem prefixadas com `_`. Assim foi deliberado
+que a melhor maneira de nomear propriedades privadas definidas pelo usuário é unindo os dois prefixos,
+fazendo isso não há chances de ocorrer algum tipo de problema com referências.
 
 [:arrow_up: Lista de categorias](#categorias)
 
@@ -176,8 +176,8 @@ segundo a doutria VueJS.
 ## Recomendados
 
 1. Adicionar **linhas vazias/separadoras** entre propriedades de componentes é uma prática que melhora a leitura
-e a navegação pelo código, essêncial caso a lista de _props_ e opções seja longa. Não é necessário caso o componente
-seja enxuto. Ex.:
+e a navegação pelo código, essêncial caso a lista de _props_ e outras opções do componente seja longa. Não é necessário
+caso este seja enxuto. Ex.:
      ```javascript
      // By Vue Docs
      props: {
