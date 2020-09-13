@@ -5,7 +5,7 @@ Cada padrão descrito encontra-se em uma das seguintes categorias:
 1. [Essenciais](#essenciais) cuja intenção é previnir erros :fire:.
 2. [Fortemente recomendados](#fortemente-recomendados) são padrões que objetivam melhorar a legibilidade do código :orange_book:.
 3. [Recomendados](#recomendados) que buscam minimizar escolhas arbitrárias e discuções desnecessárias :thought_balloon:.
-4. [Usar com cuidado]() apontado pela documentação como padrões com "perigo em potencial" :warning:.
+4. [Usar com cuidado](#usar-com-cuidado) apontado pela documentação como padrões com "perigo em potencial" :warning:.
 
 ### Essenciais
 
@@ -175,8 +175,8 @@ segundo a doutria VueJS.
 
 ## Recomendados
 
-1. Adicionar **linhas vazias/separadoras** entre propriedades de componentes é uma prática que melhora a leitura
-e a navegação pelo código, essêncial caso a lista de _props_ e outras opções do componente seja longa. Não é necessário
+1. Adicionar **linhas vazias/separadoras** entre propriedades de componentes é uma prática que melhora a leitura 
+e a navegação pelo código, essêncial caso a lista de _props_ e outras opções do componente seja longa. Não é necessário 
 caso este seja enxuto. Ex.:
      ```javascript
      // By Vue Docs
@@ -205,5 +205,35 @@ caso este seja enxuto. Ex.:
        }
      }
      ```
+     
+2. Componentes declarados em arquivos `.vue` devem seguir a ordem de elementos: `<script>`, 
+`<template>` e `<style>` (weird).
 
-**Fonte**: [VueJS Style Guides](https://vuejs.org/v2/style-guide)
+## Usar com cuidado
+
+1. **Não usar o atributo `key` em condicionais do tipo `v-if` + `v-else-if` + `v-else`**.  Usar o atributo `key` obriga o Vue a
+considerar os elementos como distintos, caso contrário somente um elemento é utilizado e este é atualizado em função do condicional.
+Deve-se tomar cuidado em condicionais (ver exemplo a seguir) em que dois elementos estão sendo considerados a mesma coisa (sem `key`), onde da verdade
+deveriam estar sendo considerados distintos.
+
+     ```html
+     <!-- By Vue Docs -->
+     <div v-if="error">
+          Erro: {{ error }}
+     </div>
+     <div v-else>
+          {{ results }}
+     </div>
+     ```
+
+2. **Seletores baseados em elementos devem ser evitados** em contextos `<style scoped>`. Ao invés disso use classes,
+torna-se custoso um grande número de seletores baseados em elementos uma vez que o Vue adiciona um atributo `data` específico
+ao elemento e estiliza-o a partir disso.
+
+3. **Comunicação entre componentes pai-filho implícita**. Preferir _props_ e eventos na comunicação entre componentes pais e filhos,
+ao invés da declaração `this.$parent` ou _mutating props_. Um App VueJS ideal é composto por _props_ fazendo a comunicação de elementos pais com
+filhos e eventos fazendo a comunicação inversa. Porém é sabido que há situações extremas que _mutation props_ ou `this.$parent` podem simplificar
+dois componentes que já estão bastante acoplados. A última solução parece bastante convidativa em sitações simples, porém fique atento, não
+abra mão de escrever menos código por ser capaz de facilmente compreender o fluxo de dados entre seus componentes.
+
+**Fonte**: [VueJS Style Guide](https://vuejs.org/v2/style-guide)
