@@ -1,24 +1,29 @@
-# arufonsekun-vuejs-template
+<p align="center">
+    <img width="200" src="https://raw.githubusercontent.com/arufonsekun/my-vuejs-template/master/public/code-template.png?token=AEVKEBFW4QX6JN3TPN7XNQ27NFPMW">
+</p>
 
-## Project setup
+# vuejs-template-sama
+
+## Instala as dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compila e seta refresh automático para desenvolvimento
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Builda e deixa tudo menor para por em produção 
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Encontra problemas no projeto
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Convenções de código
+
+ - [Sumarização](https://github.com/arufonsekun/my-vuejs-template/blob/master/vue-style-guide.md) dos padrões de projeto;
