@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="150" src="https://raw.githubusercontent.com/arufonsekun/my-vuejs-template/master/public/code-template.png?token=AEVKEBFW4QX6JN3TPN7XNQ27NFPMW">
+    <img width="150" src="https://raw.githubusercontent.com/arufonsekun/my-vuejs-template/master/src/assets/logo-template.webp?token=AEVKEBHCMOELD74UQSLI6CC7SA5JE">
 </p>
 
 # vuejs-template-sama
